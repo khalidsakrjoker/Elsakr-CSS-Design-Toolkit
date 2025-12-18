@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elsakr CSS Design Toolkit | Free Online Tool</title>
+    <meta name="description"
+        content="Complete CSS design toolkit: Color Palette, Box Shadow, Border Radius, Glassmorphism, and Animation generators. Copy CSS code instantly.">
+    <meta name="keywords"
+        content="css generator, color palette, box shadow, border radius, glassmorphism, css animation, free tool">
+    <meta name="author" content="Elsakr">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Elsakr CSS Design Toolkit | Free Online Tool">
+    <meta property="og:description" content="Complete CSS design toolkit with 5 generators.">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#0a0a0f',
+                            card: '#12121a',
+                            'card-hover': '#1a1a25',
+                            input: '#1e1e2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        /* Color Picker */
+        input[type="color"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+
+        input[type="color"]::-webkit-color-swatch {
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+        }
+
+        /* Range Slider */
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            background: #334155;
+            border-radius: 3px;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #3b82f6;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Tab active state */
+        .tab-btn.active {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+        }
+
+        /* Preview boxes */
+        .preview-box {
+            transition: all 0.3s ease;
+        }
+
+        /* Code Block */
+        .code-block {
+            font-family: 'Fira Code', 'Consolas', monospace;
+        }
+    </style>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-dark-bg text-white min-h-screen">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 min-h-screen flex flex-col">
+
+        <!-- Header -->
+        <header class="flex flex-col sm:flex-row justify-between items-center gap-4 pb-6 border-b border-slate-800">
+            <div class="flex items-center gap-4">
+                <img src="assets/logo.png" alt="Elsakr" class="w-12 h-12 object-contain">
+                <div class="text-center sm:text-left">
+                    <h1
+                        class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                        CSS Design Toolkit
+                    </h1>
+                    <span class="text-xs text-slate-500">5 tools in one</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span
+                    class="px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full text-xs font-semibold text-emerald-400">
+                    Free Tool
+                </span>
+                <a href="https://github.com/khalidsakrjoker/Elsakr-CSS-Design-Toolkit" target="_blank"
+                    class="w-10 h-10 flex items-center justify-center rounded-full bg-dark-card text-slate-400 hover:bg-dark-card-hover hover:text-white transition-all">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                </a>
+            </div>
+        </header>
+
+        <!-- Tool Tabs -->
+        <nav class="flex flex-wrap gap-2 py-6 justify-center">
+            <button
+                class="tab-btn active px-4 py-2.5 rounded-xl text-sm font-medium transition-all bg-dark-card text-slate-400 hover:bg-dark-card-hover flex items-center gap-2"
+                data-tool="palette">
+                🎨 <span class="hidden sm:inline">Color Palette</span>
+            </button>
+            <button
+                class="tab-btn px-4 py-2.5 rounded-xl text-sm font-medium transition-all bg-dark-card text-slate-400 hover:bg-dark-card-hover flex items-center gap-2"
+                data-tool="shadow">
+                📦 <span class="hidden sm:inline">Box Shadow</span>
+            </button>
+            <button
+                class="tab-btn px-4 py-2.5 rounded-xl text-sm font-medium transition-all bg-dark-card text-slate-400 hover:bg-dark-card-hover flex items-center gap-2"
+                data-tool="radius">
+                ⭕ <span class="hidden sm:inline">Border Radius</span>
+            </button>
+            <button
+                class="tab-btn px-4 py-2.5 rounded-xl text-sm font-medium transition-all bg-dark-card text-slate-400 hover:bg-dark-card-hover flex items-center gap-2"
+                data-tool="glass">
+                🪟 <span class="hidden sm:inline">Glassmorphism</span>
+            </button>
+            <button
+                class="tab-btn px-4 py-2.5 rounded-xl text-sm font-medium transition-all bg-dark-card text-slate-400 hover:bg-dark-card-hover flex items-center gap-2"
+                data-tool="animation">
+                ✨ <span class="hidden sm:inline">Animation</span>
+            </button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-1">
+
+            <!-- Tool 1: Color Palette -->
+            <section id="tool-palette" class="tool-section">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800">
+                            <label class="text-sm text-slate-400 mb-3 block">Base Color</label>
+                            <div class="flex items-center gap-4">
+                                <input type="color" id="paletteBaseColor" value="#3b82f6" class="flex-shrink-0">
+                                <input type="text" id="paletteBaseHex" value="#3b82f6"
+                                    class="flex-1 px-3 py-2 bg-dark-input border border-white/10 rounded-lg text-sm text-white uppercase">
+                            </div>
+                        </div>
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800">
+                            <label class="text-sm text-slate-400 mb-3 block">Harmony Type</label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button
+                                    class="harmony-btn active px-3 py-2 rounded-lg text-xs font-medium bg-blue-500 text-white"
+                                    data-harmony="complementary">Complementary</button>
+                                <button
+                                    class="harmony-btn px-3 py-2 rounded-lg text-xs font-medium bg-dark-input text-slate-400"
+                                    data-harmony="analogous">Analogous</button>
+                                <button
+                                    class="harmony-btn px-3 py-2 rounded-lg text-xs font-medium bg-dark-input text-slate-400"
+                                    data-harmony="triadic">Triadic</button>
+                                <button
+                                    class="harmony-btn px-3 py-2 rounded-lg text-xs font-medium bg-dark-input text-slate-400"
+                                    data-harmony="split">Split</button>
+                                <button
+                                    class="harmony-btn px-3 py-2 rounded-lg text-xs font-medium bg-dark-input text-slate-400"
+                                    data-harmony="tetradic">Tetradic</button>
+                                <button
+                                    class="harmony-btn px-3 py-2 rounded-lg text-xs font-medium bg-dark-input text-slate-400"
+                                    data-harmony="monochromatic">Mono</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800">
+                            <label class="text-sm text-slate-400 mb-3 block">Generated Palette</label>
+                            <div id="palettePreview" class="grid grid-cols-5 gap-2 h-32"></div>
+                        </div>
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800">
+                            <div class="flex justify-between items-center mb-3">
+                                <label class="text-sm text-slate-400">CSS Variables</label>
+                                <button id="paletteCopy"
+                                    class="px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-lg hover:bg-blue-600 transition-all">Copy</button>
+                            </div>
+                            <pre id="paletteCode"
+                                class="code-block bg-dark-input rounded-lg p-4 text-sm text-slate-300 overflow-x-auto border border-white/5 max-h-40"></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 2: Box Shadow -->
+            <section id="tool-shadow" class="tool-section hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800 grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-xs text-slate-400 mb-2 block">Horizontal</label>
+                                <input type="range" id="shadowX" min="-50" max="50" value="0">
+                                <span id="shadowXVal" class="text-xs text-slate-500">0px</span>
+                            </div>
+                            <div>
+                                <label class="text-xs text-slate-400 mb-2 block">Vertical</label>
+                                <input type="range" id="shadowY" min="-50" max="50" value="10">
+                                <span id="shadowYVal" class="text-xs text-slate-500">10px</span>
+                            </div>
+                            <div>
+                                <label class="text-xs text-slate-400 mb-2 block">Blur</label>
+                                <input type="range" id="shadowBlur" min="0" max="100" value="30">
+                                <span id="shadowBlurVal" class="text-xs text-slate-500">30px</span>
+                            </div>
+                            <div>
+                                <label class="text-xs text-slate-400 mb-2 block">Spread</label>
+                                <input type="range" id="shadowSpread" min="-50" max="50" value="0">
+                                <span id="shadowSpreadVal" class="text-xs text-slate-500">0px</span>
+                            </div>
+                        </div>
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800">
+                            <div class="flex items-center gap-4">
+                                <div>
+                                    <label class="text-xs text-slate-400 mb-2 block">Color</label>
+                                    <input type="color" id="shadowColor" value="#3b82f6">
+                                </div>
+                                <div class="flex-1">
+                                    <label class="text-xs text-slate-400 mb-2 block">Opacity</label>
+                                    <input type="range" id="shadowOpacity" min="0" max="100" value="30">
+                                    <span id="shadowOpacityVal" class="text-xs text-slate-500">30%</span>
+                                </div>
+                                <div>
+                                    <label class="text-xs text-slate-400 mb-2 block">Inset</label>
+                                    <input type="checkbox" id="shadowInset" class="w-5 h-5 rounded">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800">
+                            <label class="text-sm text-slate-400 mb-3 block">Preview</label>
+                            <div class="h-48 flex items-center justify-center bg-slate-900/50 rounded-xl">
+                                <div id="shadowPreview" class="preview-box w-32 h-32 bg-white rounded-xl"></div>
+                            </div>
+                        </div>
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800">
+                            <div class="flex justify-between items-center mb-3">
+                                <label class="text-sm text-slate-400">CSS Code</label>
+                                <button id="shadowCopy"
+                                    class="px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-lg hover:bg-blue-600">Copy</button>
+                            </div>
+                            <pre id="shadowCode"
+                                class="code-block bg-dark-input rounded-lg p-4 text-sm text-slate-300 border border-white/5"></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 3: Border Radius -->
+            <section id="tool-radius" class="tool-section hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800 grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-xs text-slate-400 mb-2 block">Top Left</label>
+                                <input type="range" id="radiusTL" min="0" max="100" value="20">
+                                <span id="radiusTLVal" class="text-xs text-slate-500">20px</span>
+                            </div>
+                            <div>
+                                <label class="text-xs text-slate-400 mb-2 block">Top Right</label>
+                                <input type="range" id="radiusTR" min="0" max="100" value="20">
+                                <span id="radiusTRVal" class="text-xs text-slate-500">20px</span>
+                            </div>
+                            <div>
+                                <label class="text-xs text-slate-400 mb-2 block">Bottom Right</label>
+                                <input type="range" id="radiusBR" min="0" max="100" value="20">
+                                <span id="radiusBRVal" class="text-xs text-slate-500">20px</span>
+                            </div>
+                            <div>
+                                <label class="text-xs text-slate-400 mb-2 block">Bottom Left</label>
+                                <input type="range" id="radiusBL" min="0" max="100" value="20">
+                                <span id="radiusBLVal" class="text-xs text-slate-500">20px</span>
+                            </div>
+                        </div>
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800">
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" id="radiusLink" checked class="w-5 h-5 rounded">
+                                <span class="text-sm text-slate-300">Link all corners</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800">
+                            <label class="text-sm text-slate-400 mb-3 block">Preview</label>
+                            <div class="h-48 flex items-center justify-center bg-slate-900/50 rounded-xl">
+                                <div id="radiusPreview"
+                                    class="preview-box w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-500"></div>
+                            </div>
+                        </div>
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800">
+                            <div class="flex justify-between items-center mb-3">
+                                <label class="text-sm text-slate-400">CSS Code</label>
+                                <button id="radiusCopy"
+                                    class="px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-lg hover:bg-blue-600">Copy</button>
+                            </div>
+                            <pre id="radiusCode"
+                                class="code-block bg-dark-input rounded-lg p-4 text-sm text-slate-300 border border-white/5"></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 4: Glassmorphism -->
+            <section id="tool-glass" class="tool-section hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800 space-y-4">
+                            <div>
+                                <label class="text-xs text-slate-400 mb-2 block">Blur</label>
+                                <input type="range" id="glassBlur" min="0" max="30" value="10">
+                                <span id="glassBlurVal" class="text-xs text-slate-500">10px</span>
+                            </div>
+                            <div>
+                                <label class="text-xs text-slate-400 mb-2 block">Opacity</label>
+                                <input type="range" id="glassOpacity" min="0" max="100" value="20">
+                                <span id="glassOpacityVal" class="text-xs text-slate-500">20%</span>
+                            </div>
+                            <div>
+                                <label class="text-xs text-slate-400 mb-2 block">Border Opacity</label>
+                                <input type="range" id="glassBorder" min="0" max="100" value="30">
+                                <span id="glassBorderVal" class="text-xs text-slate-500">30%</span>
+                            </div>
+                        </div>
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800">
+                            <div class="flex items-center gap-4">
+                                <div>
+                                    <label class="text-xs text-slate-400 mb-2 block">Background</label>
+                                    <input type="color" id="glassColor" value="#ffffff">
+                                </div>
+                                <div>
+                                    <label class="text-xs text-slate-400 mb-2 block">Border Radius</label>
+                                    <input type="range" id="glassRadius" min="0" max="50" value="16" class="w-24">
+                                    <span id="glassRadiusVal" class="text-xs text-slate-500">16px</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800">
+                            <label class="text-sm text-slate-400 mb-3 block">Preview</label>
+                            <div
+                                class="h-48 flex items-center justify-center bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 rounded-xl relative overflow-hidden">
+                                <div class="absolute w-24 h-24 bg-white/30 rounded-full -top-8 -left-8"></div>
+                                <div class="absolute w-32 h-32 bg-white/20 rounded-full -bottom-12 -right-12"></div>
+                                <div id="glassPreview"
+                                    class="preview-box w-40 h-28 flex items-center justify-center text-white font-semibold relative z-10">
+                                    Glass Card
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800">
+                            <div class="flex justify-between items-center mb-3">
+                                <label class="text-sm text-slate-400">CSS Code</label>
+                                <button id="glassCopy"
+                                    class="px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-lg hover:bg-blue-600">Copy</button>
+                            </div>
+                            <pre id="glassCode"
+                                class="code-block bg-dark-input rounded-lg p-4 text-sm text-slate-300 border border-white/5 overflow-x-auto"></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 5: Animation -->
+            <section id="tool-animation" class="tool-section hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800">
+                            <label class="text-sm text-slate-400 mb-3 block">Animation Preset</label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button
+                                    class="anim-btn active px-3 py-2 rounded-lg text-xs font-medium bg-blue-500 text-white"
+                                    data-anim="bounce">Bounce</button>
+                                <button
+                                    class="anim-btn px-3 py-2 rounded-lg text-xs font-medium bg-dark-input text-slate-400"
+                                    data-anim="pulse">Pulse</button>
+                                <button
+                                    class="anim-btn px-3 py-2 rounded-lg text-xs font-medium bg-dark-input text-slate-400"
+                                    data-anim="shake">Shake</button>
+                                <button
+                                    class="anim-btn px-3 py-2 rounded-lg text-xs font-medium bg-dark-input text-slate-400"
+                                    data-anim="fade">Fade</button>
+                                <button
+                                    class="anim-btn px-3 py-2 rounded-lg text-xs font-medium bg-dark-input text-slate-400"
+                                    data-anim="slide">Slide</button>
+                                <button
+                                    class="anim-btn px-3 py-2 rounded-lg text-xs font-medium bg-dark-input text-slate-400"
+                                    data-anim="rotate">Rotate</button>
+                            </div>
+                        </div>
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800 grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-xs text-slate-400 mb-2 block">Duration</label>
+                                <input type="range" id="animDuration" min="0.1" max="3" step="0.1" value="1">
+                                <span id="animDurationVal" class="text-xs text-slate-500">1s</span>
+                            </div>
+                            <div>
+                                <label class="text-xs text-slate-400 mb-2 block">Timing</label>
+                                <select id="animTiming"
+                                    class="w-full px-3 py-2 bg-dark-input border border-white/10 rounded-lg text-sm text-white">
+                                    <option value="ease">Ease</option>
+                                    <option value="linear">Linear</option>
+                                    <option value="ease-in">Ease In</option>
+                                    <option value="ease-out">Ease Out</option>
+                                    <option value="ease-in-out">Ease In Out</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-xs text-slate-400 mb-2 block">Iteration</label>
+                                <select id="animIteration"
+                                    class="w-full px-3 py-2 bg-dark-input border border-white/10 rounded-lg text-sm text-white">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="infinite" selected>Infinite</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-xs text-slate-400 mb-2 block">Direction</label>
+                                <select id="animDirection"
+                                    class="w-full px-3 py-2 bg-dark-input border border-white/10 rounded-lg text-sm text-white">
+                                    <option value="normal">Normal</option>
+                                    <option value="reverse">Reverse</option>
+                                    <option value="alternate">Alternate</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800">
+                            <label class="text-sm text-slate-400 mb-3 block">Preview</label>
+                            <div class="h-48 flex items-center justify-center bg-slate-900/50 rounded-xl">
+                                <div id="animPreview"
+                                    class="preview-box w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-dark-card rounded-xl p-5 border border-slate-800">
+                            <div class="flex justify-between items-center mb-3">
+                                <label class="text-sm text-slate-400">CSS Code</label>
+                                <button id="animCopy"
+                                    class="px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-lg hover:bg-blue-600">Copy</button>
+                            </div>
+                            <pre id="animCode"
+                                class="code-block bg-dark-input rounded-lg p-4 text-sm text-slate-300 border border-white/5 overflow-x-auto max-h-40"></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="pt-8 pb-4 border-t border-slate-800 text-center">
+            <p class="text-sm text-slate-500">Made with ❤️ by <a href="https://elsakr.company" target="_blank"
+                    class="text-blue-400 hover:underline">Elsakr</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
